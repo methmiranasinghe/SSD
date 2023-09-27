@@ -9,6 +9,7 @@ import EmpDashBoard from './HeaderLogedEMP';
 import MngrDashBoard from './HeaderLogedMNGER.js';
 import FeedBack from './FeedBack';
 import SuccessAlert from './Success';
+import CustomerInquiryForm from "./CustomerInquiryForm";
 
 class App extends React.Component {
    render() {
@@ -39,6 +40,7 @@ const Main = () => (
     <Route exact path="/EmpDashBoard" component={EmpDashBoard}></Route>
     <Route exact path="/MngDashBoard" component={MngrDashBoard}></Route>
     <Route exact path="/Success" component={SuccessAlert}></Route>
+    <Route exact path="/CustomerInquiry" component={CustomerInquiryForm}></Route>
   </Switch>
 );
 
