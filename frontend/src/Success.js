@@ -18,7 +18,7 @@ function SuccessAlert() {
 
   return (
     <div>
-      <h1>Feedback Saved Successfully</h1>
+      <h1>Submitted Inquiry Successfully. We will Contact you soon</h1>
     </div>
   );
 }
