@@ -18,21 +18,21 @@ function StudentGroupManage() {
       axios.get("http://localhost:5000/staff/allPanelMembers")
       .then(res => setAllPanelMembers(res.data))
       .catch(error => console.log(error));
-  });
+  },[]);
 
   const [AllTeams,setAllTeams] = useState([]);
   useEffect(() => {
       axios.get("http://localhost:5000/team/allTeam")
       .then(res => setAllTeams(res.data))
       .catch(error => console.log(error));
-  });
+  },[]);
 
   const [AllPanels,setAllPanels] = useState([]);
   useEffect(() => {
       axios.get("http://localhost:5000/staff/AllPanels")
       .then(res => setAllPanels(res.data))
       .catch(error => console.log(error));
-  });
+  },[]);
 
   function panelCreate(e){
     e.preventDefault();

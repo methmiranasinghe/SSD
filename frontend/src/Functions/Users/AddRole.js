@@ -135,7 +135,7 @@ function AddRole() {
 
   }
 
-  useEffect(() => getRepo(),[]);
+  useEffect(() => {getRepo()},[]);
     return (
       <div>
         <div className="prof">

@@ -25,20 +25,23 @@ nav a:hover{
 nav li{
     background-color: white;
     box-shadow: 0 0 20px 0px #888888;
-    width: 8%;
+    /* width: 8%; */
+    padding: 5px 10px;
     border-radius: 5px;
-    transition: width 0.25s linear;
+    transition: padding 0.25s linear;
 	/*border-right: 3px solid red; */
 	line-height: 35px;
 	font-size: 140%;
-	margin-right: -4px;
+	/* margin-right: -4px; */
 	display: inline-block;
+    margin: 0px 10px;
 }
 
 nav li:hover{
     background-color:#1da70b;
     box-shadow: none;
-    width: 12%;
+    /* width: 12%; */
+    padding: 5px 15px;
     border-radius: 5px;
 }
 
@@ -173,11 +176,13 @@ footer{
 input[type=text] {
 font-family: 'Ubuntu', sans-serif;
 background-color: #757575;
+width: 95%;
 }
 
 input[type=email] {
 font-family: 'Ubuntu', sans-serif;
 background-color: #ffffff40;
+width: 95%;
 }
 
 input[type=password] {
@@ -226,10 +231,13 @@ margin-top: 20px;
 }
 input[type=text]{
 background-color:#ffffff40;
+width: 95% !important;
+padding: 0px !important
 }
 
 input[type=password]{
 background-color:#ffffff40;
+width: 95%;
 }
 input[type=submit] {
 display: block;
@@ -314,7 +322,7 @@ display: block;
 }
 
 input[type=search] {
-width: 100%;
+width: 95%;
 box-sizing: border-box;
 border: 2px solid #ccc;
 border-radius: 4px;

@@ -17,7 +17,7 @@ function ViewSalary() {
       });
   };
 
-  useEffect(() => getRepo(),[]);
+  useEffect(() => {getRepo()},[]);
 
     return (
       <div>

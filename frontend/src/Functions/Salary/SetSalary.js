@@ -123,7 +123,7 @@ function SetSalary() {
 
 
 
-  useEffect(() => getRepo(),[]);
+  useEffect(() => {getRepo()},[]);
 
     return (
       <div>

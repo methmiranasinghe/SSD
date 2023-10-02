@@ -92,7 +92,7 @@ function Leave() {
 
   }
 
-  useEffect(() => getAttendance(),[]);
+  useEffect(() => {getAttendance()},[]);
     return (
       <div>
         <div className="prof">

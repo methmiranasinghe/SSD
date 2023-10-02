@@ -220,7 +220,7 @@ function AssetReport() {
     );
 
 
-    useEffect(() => StartFunc(),[]);
+    useEffect(() =>{ StartFunc()},[]);
     return (
         <div>
             <div style={{ height: 550, width: 900, margin: '1% 2% 2% 2%', background:'#cecece6b'}}>

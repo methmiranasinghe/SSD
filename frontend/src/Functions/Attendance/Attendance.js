@@ -63,7 +63,7 @@ function Attendance() {
   }
 
 
-  useEffect(() => getAttendance(),[]);
+  useEffect(() => {getAttendance()},[]);
 
     return (
       <div>

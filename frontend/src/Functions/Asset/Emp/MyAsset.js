@@ -106,7 +106,7 @@ function MyAsset() {
     }
 
 
-    useEffect(() => StartFunc(),[]);
+    useEffect(() => {StartFunc()},[]);
     return (
         <div>
             <div style={{ height: 700, width: 900, margin: '1% 3% 2% 4%', background:'#cecece6b'}}>

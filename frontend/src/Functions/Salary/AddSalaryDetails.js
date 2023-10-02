@@ -111,7 +111,7 @@ function AddSalaryDetails() {
 
   }
 
-  useEffect(() => getRepo(),[]);
+  useEffect(() => {getRepo()},[]);
 
     return (
       <div>

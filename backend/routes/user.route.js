@@ -3,6 +3,7 @@ const util = require('./util');
 require('dotenv').config();
 const CryptoJS = require("crypto-js");
 const key = "ASECRET";
+const axios = require('axios');
 
 const userData = {
   email: "123456",
@@ -31,7 +32,7 @@ router.route('/create-user').post((req, res, next) => {
 router.route('/login-user').post((req, res, next) => {
   let username = req.body.username;
   let password = req.body.password;
-  const user = userSchema .findOne({username: username },(error, data) => {
+  const user = userSchema .findOne({username },(error, data) => {
     console.log(user)
     if (data){
       if ((CryptoJS.AES.decrypt((data.password),key)).toString(CryptoJS.enc.Utf8) === password){
@@ -48,6 +49,65 @@ router.route('/login-user').post((req, res, next) => {
       return res.json({ user: 'User Error' });
     }
   })
+})
+
+router.route("/oauth-login").post(async (req, res) =>
+{
+  const googleUserUrl = "https://oauth2.googleapis.com/tokeninfo?id_token=";
+  const { clientId } = req.body;
+
+  if(!clientId) return res.json({ user: 'Client ID required' });
+  try {
+    const response = await axios.get(googleUserUrl + clientId);
+    console.log("user data top ",response.data)
+    if (response.data)
+    {
+      console.log("user info ", response.data);
+      const userEmail = response.data.email;
+
+      const data = await userSchema.findOne({ username: userEmail });
+      if (data)
+      {
+        const token = util.generateToken(data);
+        const userObj = util.getCleanUser(data);
+        console.log("User account already available ",data)
+        return res.json({ user: userObj, token });
+      } else
+      {
+        console.log("User account not available... creating new account ")
+        const r = response.data;
+        const newUserObj = {
+          email: r.email,
+          name: r?.name,
+          username: r.email,
+          salary: "0",
+          roll: "Employee",
+          department: "IT",
+        }
+        userSchema.create(newUserObj, (error, data) =>
+        {
+          if (error)
+          {
+            return next(error)
+          } else
+          {
+            const token = util.generateToken(data);
+            // const userObj = util.getCleanUser(data);
+            return res.json({ user: data, token });
+          }
+        })
+      }
+
+    } else
+    {
+      return res.json({ user: 'Error oauth' });
+    }
+    // return res.json({ user: response.data?.email });
+  } catch (error)
+  {
+    console.log("error ",error)
+    return res.json({ user: 'Error oauth' });
+  }
 })
 
 // READ Students

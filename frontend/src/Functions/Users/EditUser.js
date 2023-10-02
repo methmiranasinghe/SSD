@@ -168,7 +168,7 @@ function EditUser() {
     
   }
 
-  useEffect(() => getRepo(),[]);
+  useEffect(() => {getRepo()},[]);
 
     return (
       <div>

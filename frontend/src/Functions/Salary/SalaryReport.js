@@ -202,7 +202,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
          </Document>
      );
 
-     useEffect(() => getRepo(),[]);
+     useEffect(() => {getRepo()},[]);
     return (
       <div>
         <div style={{ height: 690, width: 800, margin: '1% 2% 2% 2%', background:'#cecece6b'}}>

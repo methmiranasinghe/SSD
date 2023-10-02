@@ -106,23 +106,7 @@ function Announcement() {
       }
   }
 
-  async function getRepo(){
-    await axios.get('http://localhost:4000/Announcement/')
-        .then(response => {
-          // console.log(JSON.stringify(response.data));
-          const data = response.data;
-          for (let k in data){
-            const row ={
-              id:k,
-              name:data[k].name,
-              description:data[k].description
-            }
-            console.log(row)
-            setrows(rows => [...rows, row]);
-          }
-
-        });
-  };
+  
 
   const PdfGen = () =>(
       <Document>
@@ -171,7 +155,29 @@ function Announcement() {
       </Document>
   );
 
-  useEffect(() => getRepo(),[]);
+  useEffect(() =>
+  {
+    async function getRepo(){
+    await axios.get('http://localhost:4000/Announcement/')
+        .then(response => {
+          // console.log(JSON.stringify(response.data));
+          const data = response.data;
+          for (let k in data){
+            const row ={
+              id:k,
+              name:data[k].name,
+              description:data[k].description
+            }
+            console.log(row)
+            setrows(rows => [...rows, row]);
+          }
+
+        });
+  };
+    getRepo()
+    
+  }
+    , []);
   return (
       <div style={{ height: 690, width: 800, margin: '1% 2% 20% 20%', background:'#cecece6b'}}>
         <Stack spacing={2} sx={{ m: 4,mx: "auto" }}>

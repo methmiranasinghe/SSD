@@ -128,7 +128,7 @@ function Submission() {
     
   }
 
-  useEffect(() => getRepo(),[]);
+  useEffect(() => {getRepo()},[]);
     return (
       <div>
         <div id='main'>

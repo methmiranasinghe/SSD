@@ -34,7 +34,7 @@ function SupervisorViewTeam() {
     axios.get("http://localhost:5000/deadLine/AllDeadLine")
     .then(res => setAllDeadLine(res.data))
     .catch(error => console.log(error));
-  });
+  },[]);
 
 
 
@@ -44,7 +44,7 @@ function SupervisorViewTeam() {
       axios.get("http://localhost:5000/team/OneTeam/"+id)
       .then(res => setTeamDetails(res.data))
       .catch(error => console.log(error));
-  });
+  },[]);
 
     function topicSubmit()
     {

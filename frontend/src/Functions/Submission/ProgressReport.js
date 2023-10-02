@@ -236,7 +236,7 @@ function ProgressReport() {
       </Document>
   );
 
-  useEffect(() => getRepo(),[]);
+  useEffect(() => {getRepo()},[]);
     return (
       <div>
         <div id='main'>

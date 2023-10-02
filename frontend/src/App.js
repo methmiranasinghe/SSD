@@ -11,9 +11,9 @@ import FeedBack from './FeedBack';
 import SuccessAlert from './Success';
 import CustomerInquiryForm from "./CustomerInquiryForm";
 
-class App extends React.Component {
-   render() {
-      return (
+const App = () => {
+  return (
+    
          <div>
            <Header />
             <div className="home">
@@ -25,13 +25,13 @@ class App extends React.Component {
             </Link>
             </div>
             <Footer />
-         </div>
+      </div>
       );
-   }
 }
 
 
 const Main = () => (
+  
   <Switch>
     <Route exact path="/" component={App}></Route>
     <Route exact path="/Login" component={Login}></Route>
@@ -41,7 +41,7 @@ const Main = () => (
     <Route exact path="/MngDashBoard" component={MngrDashBoard}></Route>
     <Route exact path="/Success" component={SuccessAlert}></Route>
     <Route exact path="/CustomerInquiry" component={CustomerInquiryForm}></Route>
-  </Switch>
+    </Switch>
 );
 
 export default Main;
