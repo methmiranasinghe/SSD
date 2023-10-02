@@ -1,5 +1,6 @@
 import React from 'react'
-import  './styles/App.css';
+import './styles/App.css';
+import  './header.css';
 import logo from './images/Blue logo-cropped.png';
 
 function Header() {
@@ -20,7 +21,28 @@ function Header() {
         </nav>
         <img src={logo} id="logo" alt="Logo"></img>
     </div>
+
+
+    
   )
 }
 
-export default Header
+
+function NavigationBar() {
+  return (
+    <div className="navbar">
+      <ul className="navbar-list">
+        <li className="navbar-item"><a href="/">Home</a></li>
+        <li className="navbar-item"><a href="/Feedback">Feedback</a></li>
+        <li className="navbar-item"><a href="/CustomerInquiry">Customer Inquiry</a></li>
+        <li className="navbar-item"><a href="/ExceptionDemo">Users</a></li>
+        <li className="navbar-item"><a href="/ExceptionDemoFix">Users(Secure)</a></li>
+      </ul>
+    </div>
+  );
+}
+
+export default NavigationBar;
+
+
+// export default Header

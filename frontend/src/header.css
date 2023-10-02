@@ -1,0 +1,41 @@
+/* NavigationBar.css */
+
+.navbar {
+    background: black
+    ;
+    /* Gradient background */
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+}
+
+.navbar-title {
+    font-size: 28px;
+    margin: 0;
+}
+
+.navbar-list {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar-item {
+    display: inline;
+    margin: 0 20px;
+    transition: transform 0.2s;
+}
+
+.navbar-item a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-item:hover {
+    transform: scale(1.1);
+    /* Hover effect to slightly scale the item */
+}
+
+.navbar{
+    margin-bottom: 10px;
+}
