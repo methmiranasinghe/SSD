@@ -13,7 +13,9 @@ function Header() {
             <li><a href="/Feedback">Feedback</a></li>
             </ul>
             <ul>
-              <li><a href="/CustomerInquiry">Customer Inquiry</a></li>
+          <li><a href="/CustomerInquiry">Customer Inquiry</a></li>
+          <li><a href="/ExceptionDemo">Users</a></li>
+          <li><a href="/ExceptionDemoFix">Users(Secure)</a></li>
             </ul>
         </nav>
         <img src={logo} id="logo" alt="Logo"></img>

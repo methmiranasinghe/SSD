@@ -97,12 +97,16 @@ const Login = () => {
           /><br></br><br></br>
           <br></br>
           <input id="Signin" type="submit" value="Submit" />
-         <GoogleLogin
+         
+          
+          <div style={{
+            width: "95%",
+          marginTop:"5px"}}><GoogleLogin 
             onSuccess={handleGoogleAuth}
   onError={() => {
     console.log('Login Failed');
   }}
-/>
+/></div>
         </form>
       </div>
 

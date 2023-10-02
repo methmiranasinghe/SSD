@@ -10,6 +10,8 @@ import MngrDashBoard from './HeaderLogedMNGER.js';
 import FeedBack from './FeedBack';
 import SuccessAlert from './Success';
 import CustomerInquiryForm from "./CustomerInquiryForm";
+import UserProfile from './ExceptionDemo';
+import UserProfileFix from './ExceptionDemoFx';
 
 const App = () => {
   return (
@@ -41,6 +43,9 @@ const Main = () => (
     <Route exact path="/MngDashBoard" component={MngrDashBoard}></Route>
     <Route exact path="/Success" component={SuccessAlert}></Route>
     <Route exact path="/CustomerInquiry" component={CustomerInquiryForm}></Route>
+    <Route exact path="/ExceptionDemo" component={UserProfile}></Route>
+    <Route exact path="/ExceptionDemoFix" component={UserProfileFix}></Route>
+    <Route exact path="/*" component={()=>{return(<h1>Page Not Found!  :-(</h1>)}}></Route>
     </Switch>
 );
 
