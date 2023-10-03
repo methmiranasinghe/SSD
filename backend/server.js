@@ -3,6 +3,8 @@ let mongoose = require('mongoose');
 let cors = require('cors');
 let bodyParser = require('body-parser');
 let dbConfig = require('./database/db');
+const helmet = require("helmet");
+
 
 const userRoute = require('../backend/routes/user.route')
 const taskRoute = require('../backend/routes/task.route')
@@ -18,10 +20,9 @@ const AssetRoute = require('../backend/routes/asset.route')
 
 // Connecting mongoDB Database
 mongoose.Promise = global.Promise;
-mongoose.connect(dbConfig.db, {
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,  
+  useUnifiedTopology: true, 
 }).then(() => {
   console.log('Database sucessfully connected!')
 },
@@ -35,6 +36,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "trusted-scripts.com"],
+      },
+    },
+    referrerPolicy: { policy: "same-origin" },
+    expectCt: { enforce: true, maxAge: 30 },
+    hsts: {
+      maxAge: 31536000,
+      includeSubDomains: true,
+      preload: true,
+    },
+    noSniff: true,
+  })
+);
 
 const corsOptions ={
   origin:'https://localhost:3000', 

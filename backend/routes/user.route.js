@@ -4,6 +4,8 @@ require('dotenv').config();
 const CryptoJS = require("crypto-js");
 const key = "ASECRET";
 const axios = require('axios');
+const sanitizeHtml = require('sanitize-html');
+
 
 const userData = {
   email: "123456",
@@ -15,6 +17,7 @@ let mongoose = require('mongoose'),
 
 // user Model
 let userSchema = require('../Models/User');
+const sanitize = require('sanitize-html');
 
 // CREATE user
 router.route('/create-user').post((req, res, next) => {
@@ -29,27 +32,36 @@ router.route('/create-user').post((req, res, next) => {
 });
 
 
-router.route('/login-user').post((req, res, next) => {
+router.route("/login-user").post((req, res, next) => {
   let username = req.body.username;
   let password = req.body.password;
-  const user = userSchema .findOne({username },(error, data) => {
-    console.log(user)
-    if (data){
-      if ((CryptoJS.AES.decrypt((data.password),key)).toString(CryptoJS.enc.Utf8) === password){
+console.log(username, 'before')
+  // Sanitize the username
+  sanitizeUsername = sanitizeHtml(username, {
+    allowedTags: [],  // No HTML tags allowed
+    allowedAttributes: {}, // No HTML attributes allowed
+  });
+  console.log(sanitizeUsername, 'after')
+  const user = userSchema.findOne({ username: sanitizeUsername }, (error, data) => {
+    console.log(user);
+    if (data) {
+      if (
+        CryptoJS.AES.decrypt(data.password, key).toString(CryptoJS.enc.Utf8) ===
+        password
+      ) {
         const token = util.generateToken(data);
         const userObj = util.getCleanUser(data);
         return res.json({ user: userObj, token });
-      }else{
-        return res.json({ user: 'pw Error' });
+      } else {
+        return res.json({ user: "pw Error" });
       }
-      
-    }else if(error){
-      return res.json({ user: 'Error' });
-    }else{
-      return res.json({ user: 'User Error' });
-    }
-  })
-})
+    } else if (error) {
+      return res.json({ user: "Error" });
+    } else {
+      return res.json({ user: "User Error" });
+    }
+  });
+});
 
 router.route("/oauth-login").post(async (req, res) =>
 {
