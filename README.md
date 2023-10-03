@@ -6,9 +6,8 @@
 3. **IT20243258** - Ekanayake E.M.U.Y
 
 ## Original Project
-GitHub Link: [SSD Original Repo](https://github.com/methmiranasinghe/SSD)
+GitHub Link: [SSD Vulnerable Repo](https://github.com/methmiranasinghe/SSD-Vulnerable-Repo)
 
 ## Modified Project (Fixed Vulnerabilities)
-GitHub Link: [SSD Modified Repo](https://github.com/methmiranasinghe/SSD-Vulnerable-Repo)
-
+GitHub Link: [SSD Modified Repo](https://github.com/methmiranasinghe/SSD)
 
