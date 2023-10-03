@@ -12,4 +12,4 @@ GitHub Link: [SSD Vulnerable Repo](https://github.com/methmiranasinghe/SSD-Vulne
 GitHub Link: [SSD Modified Repo](https://github.com/methmiranasinghe/SSD)
 
 ## Youtube video link
-https://youtu.be/dqhV_tLWOwQ
+Youtube Link: [Youtube](https://www.youtube.com/watch?v=dqhV_tLWOwQ)
